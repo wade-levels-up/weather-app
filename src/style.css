@@ -28,12 +28,38 @@ body {
   background-color: black;
   color: aliceblue;
   min-width: 340px;
+  position: relative;
 }
 
 main {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.error {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgb(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  display: none;
+}
+
+.error p {
+  text-align: center;
+}
+
+.error button {
+  padding: 2px 12px;
+  outline: 1px solid var(--color-theme-1);
 }
 
 .homescreen {
@@ -45,7 +71,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 0px
+  padding: 30px 0px;
+  transition: ease 3s;
 }
 
 .formsection {
@@ -73,7 +100,7 @@ input {
   outline: 1px solid var(--color-theme-1);
 }
 
-button {
+#submit-location-btn {
   height: 1.5rem;
   border-radius: 0px 10px 10px 0px;
   padding: 0px 0.5rem 0px 0.5rem;
@@ -83,6 +110,12 @@ button {
 h1 {
   font-family: 'ride_the_lightning';
   font-size: 4rem;
+}
+
+h2 {
+  font-size: 1rem;
+  position: relative;
+  top: -12px;
 }
 
 .credit {
@@ -97,6 +130,7 @@ h1 {
   padding: 2vw;
   height: fit-content;
   border-top: 1px solid rgb(0, 0, 0);
+  transition: ease-in-out 1s;
 }
 
 #current {

@@ -5,6 +5,7 @@ import {
 } from '../modules/getData';
 import {
   revealElement,
+  hideElement,
   populateCurrentWeatherCard,
   populateWeeksWeatherCards,
 } from '../modules/renderDOM';
@@ -13,35 +14,32 @@ const form = document.querySelector('#main-form');
 const inputCity = document.querySelector('#input-city');
 const subscreen = document.querySelector('.subscreen');
 const submitButton = document.querySelector('#submit-location-btn');
+const errorModal = document.querySelector('.error');
+const errorCloseBtn = document.querySelector('.error button');
+
+errorCloseBtn.addEventListener('click', () => {
+  hideElement(errorModal);
+});
 
 let todaysWeather;
 let weeksWeather;
 
-// async function setTodaysWeather(city) {
-//   todaysWeather = await returnCurrentWeatherObject(city);
-//   if (todaysWeather) {
-//     populateCurrentWeatherCard(todaysWeather);
-//     revealElement(subscreen);
-//   }
-// }
-
-// async function setWeeksWeather(city) {
-//   weeksWeather = await returnWeeksWeatherObjects(city);
-//   if (weeksWeather) {
-//     populateWeeksWeatherCards(weeksWeather);
-//     submitButton.textContent = 'See Weather';
-//     revealElement(subscreen);
-//   }
-// }
-
 async function setWeather(city) {
-  todaysWeather = await returnCurrentWeatherObject(city);
-  weeksWeather = await returnWeeksWeatherObjects(city);
-  if (todaysWeather && weeksWeather) {
-    populateCurrentWeatherCard(todaysWeather);
-    populateWeeksWeatherCards(weeksWeather);
-    revealElement(subscreen);
+  try {
+    todaysWeather = await returnCurrentWeatherObject(city);
+    weeksWeather = await returnWeeksWeatherObjects(city);
+    if (todaysWeather && weeksWeather) {
+      populateCurrentWeatherCard(todaysWeather);
+      populateWeeksWeatherCards(weeksWeather);
+      revealElement(subscreen);
+      submitButton.textContent = 'See Weather';
+    }
+  } catch (error) {
+    revealElement(errorModal);
+    hideElement(subscreen);
+    console.error('There was an issue fetching the weather data');
     submitButton.textContent = 'See Weather';
+    inputCity.value = '';
   }
 }
 
