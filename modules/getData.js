@@ -12,7 +12,7 @@ async function makeWeatherDataJSON(cityName) {
   return processedData;
 }
 
-async function setWeatherData(cityName) {
+export async function setWeatherData(cityName) {
   const data = await makeWeatherDataJSON(cityName);
   return data;
 }
@@ -31,6 +31,7 @@ export async function returnCurrentWeatherObject(cityName) {
     curCondition: data.currentConditions.conditions,
     longDescription: data.description,
     chanceOfRain: `${data.currentConditions.precipprob}%`,
+    icon: data.currentConditions.icon,
   };
   return currentWeatherObject;
 }

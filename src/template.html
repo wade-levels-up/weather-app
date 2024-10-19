@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tempest Weather App</title>
+    <script src="https://kit.fontawesome.com/74043cfcaf.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
       <div class="homescreen">
         <h1>Tempest</h1>
+        <h2>A weather app</h2>
         <div class="formsection">
           <form action="" method="" id="main-form">
             <ul>
@@ -17,15 +19,52 @@
                 <input type="text" id="input-city" name="city">
               </li>
               <li>
-                <button type="submit" id="submit-location-btn">Submit</button>
+                <button type="submit" id="submit-location-btn">See Weather</button>
               </li>
             </ul>
           </form>
         </div>
         <span class="credit">Photo by <a href="https://unsplash.com/@davidmoum?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">David Moum</a> on <a href="https://unsplash.com/photos/selective-photography-of-white-thunder-nbqlWhOVu6k?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span>
       </div>
-      <div class="subscreen">
-
+      <div class="subscreen" style="display: flex">
+        <ol>
+          <li id="current">
+            <h3 class="card-city">City Name</h3>
+            <div class="cardPropertyMainDiv">
+              <span class="fa-solid"></span>
+              <div>
+                <p id="curTemp">Current temp</p>
+                <p id="curCond">Condition</p>
+                <p id="curDesc" style="font-size: smaller">Long Description</p>
+              </div>
+            </div>
+            <div class="curCardSubSection">
+              <div class="cardPropertyDiv">
+                <span class="fa-solid fa-temperature-low"></span>
+                <p id="curMinTemp">Min temp</p>
+              </div>
+              <div class="cardPropertyDiv">
+                <span class="fa-solid fa-temperature-high"></span>
+                <p id="curMaxTemp">max temp</p>
+              </div>
+              <div class="cardPropertyDiv">
+                <span class="fa-solid fa-radiation"></span>
+                <p id="curUVIndex">uv index</p>
+              </div>
+              <div class="cardPropertyDiv">
+                <span class="fa-solid fa-cloud-rain"></span>
+                <p id="curChanceOfRain">Chance of rain</p>
+              </div>
+            </div>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol>
       </div>
     </main>
   </body>

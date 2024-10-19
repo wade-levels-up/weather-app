@@ -2,10 +2,16 @@ import './style.css';
 import {
   returnCurrentWeatherObject,
   returnWeeksWeatherObjects,
+  setWeatherData,
 } from '../modules/getData';
+import {
+  revealElement,
+  populateCurrentWeatherCard,
+} from '../modules/renderDOM';
 
 const form = document.querySelector('#main-form');
 const inputCity = document.querySelector('#input-city');
+const subscreen = document.querySelector('.subscreen');
 
 let todaysWeather;
 let weeksWeather;
@@ -13,6 +19,7 @@ let weeksWeather;
 async function setTodaysWeather(city) {
   todaysWeather = await returnCurrentWeatherObject(city);
   console.table(todaysWeather);
+  populateCurrentWeatherCard(todaysWeather);
 }
 
 async function setWeeksWeather(city) {
@@ -25,4 +32,10 @@ form.addEventListener('submit', (e) => {
   console.log('retrieving data...');
   setTodaysWeather(`${inputCity.value}`);
   setWeeksWeather(`${inputCity.value}`);
+  revealElement(subscreen);
 });
+
+// console.log(await setWeatherData('mildura'));
+setTodaysWeather(`Mildura`);
+setWeeksWeather(`Mildura`);
+revealElement(subscreen);
