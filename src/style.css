@@ -21,6 +21,7 @@ body {
   color: aliceblue;
   min-width: 340px;
   position: relative;
+  padding: 5px;
 }
 
 main {
@@ -90,6 +91,7 @@ input {
   padding-left: 0.5rem;
   border-radius: 10px 0px 0px 10px;
   outline: 1px solid var(--color-theme-1);
+  font-size: 16px;
 }
 
 #submit-location-btn {

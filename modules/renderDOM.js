@@ -79,6 +79,7 @@ export function populateCurrentWeatherCard(data, unit) {
 
 export function populateWeeksWeatherCards(data, unit) {
   for (let i = 0; i < 7; i += 1) {
+    weekCards[i].textContent = '';
     const icon = createDOMElement('div', '', 'class', 'curMainIcon');
     const leftDiv = createDOMElement('div', '', 'class', 'weekcardLeft');
     const rightDiv = createDOMElement('div', '', 'class', 'weekcardRight');
