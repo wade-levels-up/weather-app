@@ -17,44 +17,27 @@ export function hideElement(element) {
 }
 
 function setWeatherIcon(condition) {
+  currentCardMainIcon.className = 'curMainIcon';
   if (condition === 'clear-day' || condition === 'clear-night') {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/sun-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/sun-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('sun');
   }
   if (condition === 'fog' || condition === 'cloudy') {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/cloud-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/cloud-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('cloud');
   }
   if (
     condition === 'partly-cloudy-day' ||
     condition === 'partly-cloudy-night'
   ) {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/cloud-sun-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/cloud-sun-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('partly-cloudy');
   }
   if (condition === 'snow') {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/snowflake-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/snowflake-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('snow');
   }
   if (condition === 'wind') {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/wind-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/wind-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('wind');
   }
   if (condition === 'rain') {
-    currentCardMainIcon.style.webkitMask =
-      'url(./icons/cloud-rain-solid.svg) no-repeat center';
-    currentCardMainIcon.style.mask =
-      'url(./icons/cloud-rain-solid.svg) no-repeat center';
+    currentCardMainIcon.classList.add('rain');
   }
 }
 

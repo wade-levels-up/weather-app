@@ -142,9 +142,47 @@ ol li {
  width: 48px;
  height: 48px;
  background-color: rgb(255, 255, 255);
- -webkit-mask: url('./icons/sun-solid.svg') no-repeat center;
- mask: url('./icons/sun-solid.svg') no-repeat center;
- -webkit-mask-size: contain;
- mask-size: contain;
+}
+
+.sun {
+  -webkit-mask: url('./icons/sun-solid.svg') no-repeat center;
+  mask: url('./icons/sun-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.cloud {
+  -webkit-mask: url('./icons/cloud-solid.svg') no-repeat center;
+  mask: url('./icons/cloud-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.partly-cloudy {
+  -webkit-mask: url('./icons/cloud-sun-solid.svg') no-repeat center;
+  mask: url('./icons/cloud-sun-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.rain {
+  -webkit-mask: url('./icons/cloud-rain-solid.svg') no-repeat center;
+  mask: url('./icons/cloud-rain-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.snow {
+  -webkit-mask: url('./icons/snowflake-solid.svg') no-repeat center;
+  mask: url('./icons/snowflake-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.wind {
+  -webkit-mask: url('./icons/wind-solid.svg') no-repeat center;
+  mask: url('./icons/wind-solid.svg') no-repeat center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
