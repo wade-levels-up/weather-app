@@ -186,3 +186,28 @@ ol li {
   mask-size: contain;
 }
 
+.weekcard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: max-content;
+  padding: 10px;
+}
+
+.weekcardTop {
+ width: 100%;
+ text-align: center;
+}
+
+.weekcardLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: max-content;
+}
+
+.weekcardRight {
+ width: max-content
+}
+

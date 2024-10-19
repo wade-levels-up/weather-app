@@ -7,6 +7,7 @@ import {
 import {
   revealElement,
   populateCurrentWeatherCard,
+  populateWeeksWeatherCards,
 } from '../modules/renderDOM';
 
 const form = document.querySelector('#main-form');
@@ -25,6 +26,7 @@ async function setTodaysWeather(city) {
 async function setWeeksWeather(city) {
   weeksWeather = await returnWeeksWeatherObjects(city);
   console.table(weeksWeather);
+  populateWeeksWeatherCards(weeksWeather);
 }
 
 form.addEventListener('submit', (e) => {
@@ -35,7 +37,7 @@ form.addEventListener('submit', (e) => {
   revealElement(subscreen);
 });
 
-// console.log(await setWeatherData('mildura'));
+console.log(await setWeatherData('mildura'));
 setTodaysWeather(`Mildura`);
 setWeeksWeather(`Mildura`);
 revealElement(subscreen);

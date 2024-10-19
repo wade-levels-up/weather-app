@@ -45,8 +45,11 @@ export async function returnWeeksWeatherObjects(cityName) {
       city: `${data.resolvedAddress}`,
       date: `${data.days[i].datetime}`,
       maxtemp: `${data.days[i].tempmax}`,
+      mintemp: `${data.days[i].tempmin}`,
       chanceOfRain: `${data.days[i].precipprob}`,
       uvindex: `${data.days[i].uvindex}`,
+      icon: `${data.days[i].icon}`,
+      temp: `${data.days[i].temp}`,
     });
   }
   return weeksWeatherArray;
