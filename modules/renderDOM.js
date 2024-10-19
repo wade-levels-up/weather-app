@@ -63,6 +63,63 @@ export function populateWeeksWeatherCards(data, unit) {
     const leftDiv = createDOMElement('div', '', 'class', 'weekcardLeft');
     const rightDiv = createDOMElement('div', '', 'class', 'weekcardRight');
     const topDiv = createDOMElement('div', '', 'class', 'weekcardTop');
+    const propertyBoxMintemp = createDOMElement(
+      'div',
+      '',
+      'class',
+      'cardPropertyDiv',
+    );
+    const propertyBoxMaxtemp = createDOMElement(
+      'div',
+      '',
+      'class',
+      'cardPropertyDiv',
+    );
+    const propertyBoxCORain = createDOMElement(
+      'div',
+      '',
+      'class',
+      'cardPropertyDiv',
+    );
+    const propertyBoxUVIndex = createDOMElement(
+      'div',
+      '',
+      'class',
+      'cardPropertyDiv',
+    );
+    const mintemp = createDOMElement('p', `Min: ${data[i].mintemp}°c`);
+    const maxtemp = createDOMElement('p', `Max: ${data[i].maxtemp}°c`);
+    const corain = createDOMElement(
+      'p',
+      `Chance of rain: ${data[i].chanceOfRain}%`,
+    );
+    const uvindex = createDOMElement('p', `UV Index: ${data[i].uvindex}`);
+
+    const minIcon = createDOMElement(
+      'span',
+      '',
+      'class',
+      'fa-solid fa-temperature-low',
+    );
+    const maxIcon = createDOMElement(
+      'span',
+      '',
+      'class',
+      'fa-solid fa-temperature-high',
+    );
+    const corIcon = createDOMElement(
+      'span',
+      '',
+      'class',
+      'fa-solid fa-cloud-rain',
+    );
+    const uvIcon = createDOMElement(
+      'span',
+      '',
+      'class',
+      'fa-solid fa-radiation',
+    );
+
     setWeatherIcon(data[i].icon, icon);
 
     topDiv.appendChild(createDOMElement('p', `${data[i].date}`));
@@ -72,38 +129,22 @@ export function populateWeeksWeatherCards(data, unit) {
     leftDiv.appendChild(createDOMElement('p', `${data[i].temp}°c`));
     weekCards[i].appendChild(leftDiv);
 
-    rightDiv.appendChild(
-      createDOMElement(
-        'p',
-        `Min: ${data[i].mintemp}°c`,
-        'class',
-        'cardPropertyDiv',
-      ),
-    );
-    rightDiv.appendChild(
-      createDOMElement(
-        'p',
-        `Max: ${data[i].maxtemp}°c`,
-        'class',
-        'cardPropertyDiv',
-      ),
-    );
-    rightDiv.appendChild(
-      createDOMElement(
-        'p',
-        `Chance of rain: ${data[i].chanceOfRain}%`,
-        'class',
-        'cardPropertyDiv',
-      ),
-    );
-    rightDiv.appendChild(
-      createDOMElement(
-        'p',
-        `UV Index: ${data[i].uvindex}`,
-        'class',
-        'cardPropertyDiv',
-      ),
-    );
+    propertyBoxMintemp.appendChild(minIcon);
+    propertyBoxMintemp.appendChild(mintemp);
+    rightDiv.appendChild(propertyBoxMintemp);
+
+    propertyBoxMaxtemp.appendChild(maxIcon);
+    propertyBoxMaxtemp.appendChild(maxtemp);
+    rightDiv.appendChild(propertyBoxMaxtemp);
+
+    propertyBoxCORain.appendChild(corIcon);
+    propertyBoxCORain.appendChild(corain);
+    rightDiv.appendChild(propertyBoxCORain);
+
+    propertyBoxUVIndex.appendChild(uvIcon);
+    propertyBoxUVIndex.appendChild(uvindex);
+    rightDiv.appendChild(propertyBoxUVIndex);
+
     weekCards[i].appendChild(rightDiv);
   }
 }

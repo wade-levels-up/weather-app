@@ -2,7 +2,6 @@ import './style.css';
 import {
   returnCurrentWeatherObject,
   returnWeeksWeatherObjects,
-  setWeatherData,
 } from '../modules/getData';
 import {
   revealElement,
@@ -13,31 +12,41 @@ import {
 const form = document.querySelector('#main-form');
 const inputCity = document.querySelector('#input-city');
 const subscreen = document.querySelector('.subscreen');
+const submitButton = document.querySelector('#submit-location-btn');
 
 let todaysWeather;
 let weeksWeather;
 
-async function setTodaysWeather(city) {
-  todaysWeather = await returnCurrentWeatherObject(city);
-  console.table(todaysWeather);
-  populateCurrentWeatherCard(todaysWeather);
-}
+// async function setTodaysWeather(city) {
+//   todaysWeather = await returnCurrentWeatherObject(city);
+//   if (todaysWeather) {
+//     populateCurrentWeatherCard(todaysWeather);
+//     revealElement(subscreen);
+//   }
+// }
 
-async function setWeeksWeather(city) {
+// async function setWeeksWeather(city) {
+//   weeksWeather = await returnWeeksWeatherObjects(city);
+//   if (weeksWeather) {
+//     populateWeeksWeatherCards(weeksWeather);
+//     submitButton.textContent = 'See Weather';
+//     revealElement(subscreen);
+//   }
+// }
+
+async function setWeather(city) {
+  todaysWeather = await returnCurrentWeatherObject(city);
   weeksWeather = await returnWeeksWeatherObjects(city);
-  console.table(weeksWeather);
-  populateWeeksWeatherCards(weeksWeather);
+  if (todaysWeather && weeksWeather) {
+    populateCurrentWeatherCard(todaysWeather);
+    populateWeeksWeatherCards(weeksWeather);
+    revealElement(subscreen);
+    submitButton.textContent = 'See Weather';
+  }
 }
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log('retrieving data...');
-  setTodaysWeather(`${inputCity.value}`);
-  setWeeksWeather(`${inputCity.value}`);
-  revealElement(subscreen);
+  submitButton.textContent = 'Loading...';
+  setWeather(`${inputCity.value}`);
 });
-
-console.log(await setWeatherData('mildura'));
-setTodaysWeather(`Mildura`);
-setWeeksWeather(`Mildura`);
-revealElement(subscreen);
