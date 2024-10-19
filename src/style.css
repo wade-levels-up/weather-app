@@ -10,6 +10,7 @@
   font-size: 16px;
   font-family: sans-serif, system-ui;
   --color-theme-1: rgb(172, 123, 172);
+  --main-card-icon: 
 }
 * {
   margin: 0px;
@@ -120,8 +121,8 @@ ol li {
 
 .cardPropertyMainDiv {
   display: grid;
-  grid-template-columns: 75px 1fr;
-  gap: 2vw;
+  grid-template-columns: max-content 1fr;
+  gap: 5vw;
 }
 
 .cardPropertyDiv {
@@ -135,5 +136,15 @@ ol li {
 .curCardSubSection {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.curMainIcon {
+ width: 48px;
+ height: 48px;
+ background-color: rgb(255, 255, 255);
+ -webkit-mask: url('./icons/sun-solid.svg') no-repeat center;
+ mask: url('./icons/sun-solid.svg') no-repeat center;
+ -webkit-mask-size: contain;
+ mask-size: contain;
 }
 
