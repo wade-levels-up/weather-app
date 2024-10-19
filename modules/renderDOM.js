@@ -12,6 +12,26 @@ const currentCardMainIcon = document.querySelector('.curMainIcon');
 
 const weekCards = Array.from(document.querySelectorAll('.weekcard'));
 
+function processDate(date) {
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const splitDateArray = date.split('-');
+  const month = months[splitDateArray[1] - 1];
+  return `${splitDateArray[2]} - ${month}`;
+}
+
 export function revealElement(element) {
   element.style.display = 'flex';
 }
@@ -122,7 +142,11 @@ export function populateWeeksWeatherCards(data, unit) {
 
     setWeatherIcon(data[i].icon, icon);
 
-    topDiv.appendChild(createDOMElement('p', `${data[i].date}`));
+    if (i === 0) {
+      topDiv.appendChild(createDOMElement('p', `Today`));
+    } else {
+      topDiv.appendChild(createDOMElement('p', `${processDate(data[i].date)}`));
+    }
     weekCards[i].appendChild(topDiv);
 
     leftDiv.appendChild(icon);
